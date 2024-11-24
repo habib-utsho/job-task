@@ -1,130 +1,117 @@
 import React from "react";
-import logo from "@/assets/images/logo.png";
+import logo from "@/assets/images/logo_white.png";
 import Link from "next/link";
 import Image from "next/image";
 import Container from "../ui/Container";
-import {
-  AreaChartOutlined,
-  ArrowRightOutlined,
-  DiscordFilled,
-  FacebookFilled,
-  GithubFilled,
-  LinkedinFilled,
-  MailFilled,
-  PhoneFilled,
-} from "@ant-design/icons";
+import FacebookLogo from "@/assets/images/social/Facebook.png";
+import LinkedinLogo from "@/assets/images/social/Linkedin.png";
+import TwitterLogo from "@/assets/images/social/Twitter.png";
+import MyInp from "../ui/Form/MyInp";
 
 const Footer = () => {
   const footerLink = [
     { link: "about", text: "About us" },
-    { link: "services", text: "Services" },
-    { link: "appointment", text: "Appointment" },
-    { link: "blogs", text: "Blogs" },
-    { link: "contact-us", text: "FAQ" },
-    { link: "terms", text: "Terms of use" },
-    { link: "popular", text: "Popular" },
-    { link: "adventure", text: "Adventure" },
-    { link: "familty", text: "Familty Tour" },
+    { link: "contact-us", text: "Contact Us" },
+    { link: "privacy", text: "Privacy Policy" },
+    { link: "terms", text: "Terms & Condition" },
+  ];
+  const socialLink = [
+    { link: "https://facebook.com", icon: FacebookLogo },
+    { link: "https://x.com", icon: TwitterLogo },
+    { link: "https://linkedin.com", icon: LinkedinLogo },
   ];
 
   return (
-    <div className="bg-primary/20 pt-6">
+    <div className="bg-black text-white">
       {/* Footer top */}
-      <Container className="grid gap-10 md:gap-6 grid-cols-1 md:grid-cols-2 xl:grid-cols-4 py-20">
-        {/* Contact info */}
-        <div className="space-y-4">
-          <Link
-            href={"/"}
-            className="font-bold text-xl flex gap-3 items-center"
-          >
-            <Image height={40} width={40} src={logo} alt="DocEye"></Image>{" "}
-            <span className="flex">
-              Trave<span className="text-secondary">Leaf</span>
-            </span>
-          </Link>
-          <p className="flex items-center gap-3">
-            <span className="inline-block p-3 bg-background rounded-full">
-              <PhoneFilled />
-            </span>{" "}
-            0170678-5160
-          </p>
-          <p className="flex items-center gap-3">
-            <span className="inline-block p-3 bg-background rounded-full">
-              <MailFilled />
-            </span>{" "}
-            utsho926@gmail.com
-          </p>
-          <p className="flex items-center gap-3">
-            <span className="inline-block p-3 bg-background rounded-full">
-              <AreaChartOutlined />
-            </span>{" "}
-            25/fa/3 Satarkul, Badda, Dhaka, Bangladesh
-          </p>
-          <div className="flex gap-3">
-            <span className="flex items-center justify-center h-10 w-10 rounded-full bg-slate-500 text-slate-50 cursor-pointer hover:scale-110 transition">
-              <FacebookFilled />
-            </span>
-            <span className="flex items-center justify-center h-10 w-10 rounded-full bg-slate-500 text-slate-50 cursor-pointer hover:scale-110 transition">
-              <GithubFilled />
-            </span>
-            <span className="flex items-center justify-center h-10 w-10 rounded-full bg-slate-500 text-slate-50 cursor-pointer hover:scale-110 transition">
-              <DiscordFilled />
-            </span>
-            <span className="flex items-center justify-center h-10 w-10 rounded-full bg-slate-500 text-slate-50 cursor-pointer hover:scale-110 transition">
-              <LinkedinFilled />
-            </span>
+      <Container className="py-14 space-y-10 md:space-y-16">
+        <div className="grid gap-10 grid-cols-1 md:grid-cols-2">
+          {/* Contact info */}
+          <div className="space-y-4">
+            <Link
+              href={"/"}
+              className="font-bold text-xl flex gap-3 items-center"
+            >
+              <Image height={150} width={150} src={logo} alt="Bakbakum"></Image>{" "}
+            </Link>
+            <p className="max-w-[411px] text-white font-thin">
+              Saepe quo suscipit vitae quia. Repudiandae nobis quis. Laboriosam
+              unde quae qui quasi mollitia tenetur. Dicta explicabo est
+              consectetur maxime quos fugit velit assumenda est.
+            </p>
+          </div>
+
+          {/* Subscribe */}
+          <div className="space-y-4">
+            <h2 className="font-semibold text-[20px] md:text-[23px]">
+              Sign Up For Our Newsletter!
+            </h2>
+
+            <p className="text-white font-thin">
+              Get notified about updates and be the first to get early access to
+              new Podcast episodes.
+            </p>
+            <MyInp type="text" label="" name={"subscribe"} />
           </div>
         </div>
 
-        {/* Useful link */}
-        <div className="space-y-4">
-          {footerLink.slice(0, 4).map((fl, ind) => {
-            return (
-              <Link
-                key={ind}
-                href={`/${fl.link}`}
-                className="font-semibold text-md flex gap-3 items-center hover:text-secondary transition group"
-              >
-                {" "}
-                <span className="group-hover:translate-x-2 transition text-secondary">
-                  <ArrowRightOutlined />
-                </span>
-                {fl.text}
-              </Link>
-            );
-          })}
-        </div>
-        <div className="space-y-4">
-          {footerLink.slice(4).map((fl, ind) => {
-            return (
-              <Link
-                key={ind}
-                href={`/${fl.link}`}
-                className="font-semibold text-md flex gap-3 items-center hover:text-secondary transition group"
-              >
-                {" "}
-                <span className="group-hover:translate-x-2 transition text-secondary">
-                  <ArrowRightOutlined />
-                </span>
-                {fl.text}
-              </Link>
-            );
-          })}
-        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {/* Useful link */}
+          <div className="space-y-4">
+            <h2 className="font-semibold">Contact Us</h2>
 
-        {/* Download our app */}
-        <div className="space-y-4">
-          <h2 className="my-subtitle">Download our app</h2>
+            <p className="font-thin">support@we5ive.com</p>
+          </div>
+          <div className="space-y-2">
+            {footerLink.slice(0, 2).map((fl, ind) => {
+              return (
+                <Link
+                  key={ind}
+                  href={`/${fl.link}`}
+                  className=" text-md flex gap-3 items-center hover:text-primary transition group font-thin"
+                >
+                  {fl.text}
+                </Link>
+              );
+            })}
+          </div>
+          <div className="space-y-2">
+            {footerLink.slice(2).map((fl, ind) => {
+              return (
+                <Link
+                  key={ind}
+                  href={`/${fl.link}`}
+                  className=" text-md flex gap-3 items-center hover:text-primary transition group font-thin"
+                >
+                  {fl.text}
+                </Link>
+              );
+            })}
+          </div>
+          <div className="space-y-4">
+            <h2 className="font-semibold">Social Link</h2>
+            <div className="flex items-center gap-2 flex-wrap">
+              {socialLink.map((sl, ind) => {
+                return (
+                  <Link
+                    key={ind}
+                    href={`/${sl.link}`}
+                    className=" text-md flex gap-3 items-center hover:text-primary transition group"
+                  >
+                    <Image src={sl.icon} alt={sl.link} />
+                  </Link>
+                );
+              })}
+            </div>
+          </div>
         </div>
       </Container>
+
       {/* Footer bottom */}
-      <div className="bg-primary/30 py-2 text-center">
-        <Container className="flex justify-between items-center flex-wrap ">
-          <p className="text-foreground text-opacity-70 font-semibold">
-            {" "}
-            Copyright © {new Date().getFullYear()}{" "}
-            <span className="text-secondary">TraveLeaf</span>. All rights
-            reserved.
+      <div className="bg-primary py-2 text-center">
+        <Container className=" ">
+          <p className="text-white text-center">
+            © {new Date().getFullYear()} <span className="">| We5ive</span>
           </p>
         </Container>
       </div>

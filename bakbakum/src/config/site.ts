@@ -9,16 +9,16 @@ export const siteConfig = {
       href: "/",
     },
     {
-      label: "About",
-      href: "/about",
+      label: "Shop",
+      href: "/shop",
     },
     {
-      label: "Package",
-      href: "/package",
+      label: "Deals",
+      href: "/deals",
     },
     {
-      label: "Contact Us",
-      href: "/contact",
+      label: "What's New",
+      href: "/whatsNew",
     },
   ],
   navMenuItems: [
@@ -27,16 +27,16 @@ export const siteConfig = {
       href: "/",
     },
     {
-      label: "About",
-      href: "/about",
+      label: "Shop",
+      href: "/shop",
     },
     {
-      label: "Package",
-      href: "/package",
+      label: "Deals",
+      href: "/deals",
     },
     {
-      label: "Contact Us",
-      href: "/contact",
+      label: "What's New",
+      href: "/whatsNew",
     },
   ],
   links: {

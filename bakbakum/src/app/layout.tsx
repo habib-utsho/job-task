@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import "./globals.css";
+import "../styles/globals.css";
 import Providers from "@/lib/providers";
 import { AntdRegistry } from "@ant-design/nextjs-registry";
+import { Manrope } from "next/font/google";
 
 const geistSans = localFont({
   src: "../components/ui/fonts/GeistVF.woff",
@@ -14,6 +15,9 @@ const geistMono = localFont({
   variable: "--font-geist-mono",
   weight: "100 900",
 });
+
+// If loading a variable font, you don't need to specify the font weight
+const manrope = Manrope({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Bakbakum",
@@ -28,7 +32,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${manrope.className} ${geistMono.variable} antialiased`}
       >
         <AntdRegistry>
           <Providers>{children}</Providers>

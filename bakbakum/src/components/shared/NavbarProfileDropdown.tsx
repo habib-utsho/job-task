@@ -1,6 +1,6 @@
 "use client";
-import { VerifiedOutlined } from "@ant-design/icons";
-import { Avatar, Dropdown, Menu } from "antd";
+import { UserOutlined } from "@ant-design/icons";
+import { Dropdown, Menu } from "antd";
 import React from "react";
 
 const NavbarProfileDropdown = () => {
@@ -23,26 +23,14 @@ const NavbarProfileDropdown = () => {
 
   return (
     <>
-      (
       <Dropdown
         overlay={menu}
         placement="bottomRight"
         trigger={["click"]}
         className="inline-block"
       >
-        <div className="relative">
-          <Avatar
-            size="large"
-            src={"https://i.pravatar.cc/150?u=a04258a2462d826712d"}
-            className="cursor-pointer"
-          />
-
-          <span className="h-5 w-5 rounded-full flex items-center justify-center text-primary text-xl absolute -top-2 md:top-0 right-0">
-            <VerifiedOutlined />
-          </span>
-        </div>
+        <UserOutlined />
       </Dropdown>
-      )
     </>
   );
 };
