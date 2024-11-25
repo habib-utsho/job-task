@@ -48,7 +48,7 @@ export const Navbar = () => {
 
   return (
     <Header
-      style={{ position: "sticky", top: 0, zIndex: 1, width: "100%" }}
+      style={{ position: "sticky", top: 0, zIndex: 10000000, width: "100%" }}
       className="!text-black !bg-white border-b flex items-center justify-between"
     >
       {/* Mobile Menu Button */}

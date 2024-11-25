@@ -1,8 +1,17 @@
+"use client";
+import ProductCard from "@/components/ui/card/ProductCard";
 import Container from "@/components/ui/Container";
+import { useGetAllProducts } from "@/hooks/Products";
+import { TProduct } from "@/types/product";
 import { ArrowLeftOutlined, ArrowRightOutlined } from "@ant-design/icons";
+import { Button, Skeleton } from "antd";
 import React from "react";
 
 const FeaturedProducts = () => {
+  const { data: products, isLoading: isLoadingProducts } = useGetAllProducts([
+    { name: "limit", value: 4 },
+  ]);
+
   return (
     <div>
       <Container>
@@ -23,6 +32,30 @@ const FeaturedProducts = () => {
               <ArrowRightOutlined />
             </span>
           </div>
+        </div>
+
+        {/* Products */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 mt-6">
+          {isLoadingProducts
+            ? Array.from({ length: 4 }).map((item, ind) => (
+                <Skeleton.Button
+                  key={ind}
+                  active
+                  className="!rounded-[16px] !w-full !h-[400px]"
+                />
+              ))
+            : products?.data?.map((product: TProduct, ind: number) => (
+                <ProductCard key={ind} product={product} />
+              ))}
+        </div>
+        <div className="text-center !mt-[24px]">
+          <Button
+            type="primary"
+            size="middle"
+            className="!font-semibold "
+          >
+            See More
+          </Button>
         </div>
       </Container>
     </div>
