@@ -7,6 +7,7 @@ import Image from "next/image";
 import { Pacifico } from "next/font/google";
 
 const pacifico = Pacifico({ subsets: ["latin"], weight: "400" });
+
 const Offer = () => {
   return (
     <div>

@@ -42,7 +42,7 @@ const Hero = () => {
           <p className="text-[19px] font-normal">
             Discover the Latest Trends in Sustainable Fashion
           </p>
-          <div className="flex items-center justify-center gap-[2px] !mt-[12px] md:!mt-[16px]">
+          <div className="flex items-center justify-center !mt-[12px] md:!mt-[16px]">
             <Button size="large" className="!rounded-[28px]" type="primary">
               Shop Now
             </Button>
