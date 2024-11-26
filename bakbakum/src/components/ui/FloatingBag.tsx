@@ -17,7 +17,7 @@ const FloatingBag: React.FC = () => {
       <div
         className={`fixed top-1/2 right-0 -translate-y-1/2 w-[100px] h-[100px] 
       rounded-l-2xl bg-[#581fc1] text-white font-bold flex flex-col items-center 
-      justify-center gap-1 shadow-lg transition-transform duration-300 ease-in-out cursor-pointer`}
+      justify-center gap-1 shadow-lg transition-transform duration-300 ease-in-out cursor-pointer !z-[5000]`}
         onClick={() => setIsCartSiderDrawerVisible(true)}
       >
         <ShoppingBagIcon className="w-6 h-6" />
@@ -31,6 +31,7 @@ const FloatingBag: React.FC = () => {
         onClose={() => setIsCartSiderDrawerVisible(false)}
         open={isCartSiderDrawerVisible}
         width="400"
+        zIndex={50000}
       >
         <CartSider />
       </Drawer>

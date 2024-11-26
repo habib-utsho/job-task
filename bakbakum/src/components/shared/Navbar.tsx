@@ -132,6 +132,7 @@ export const Navbar = () => {
           onClose={() => setIsCartSiderDrawerVisible(false)}
           open={isCartSiderDrawerVisible}
           width="400"
+          zIndex={50000}
         >
           <CartSider />
         </Drawer>
