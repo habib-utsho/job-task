@@ -35,4 +35,5 @@ Running the Server by- **yarn dev**
 
 Local URL: **[Link](http://localhost:3000)**
 
-Live URL: **[Link](https://We5ive.vercel.app/)**
+Live URL: **[Link](https://we5ive-b2gsoft.vercel.app/)**
+
