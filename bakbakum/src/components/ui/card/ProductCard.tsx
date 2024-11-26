@@ -1,5 +1,11 @@
+import { useAppDispatch, useAppSelector } from "@/redux/hook";
+import {
+  decreaseQuantityInCart,
+  increaseQuantityInCart,
+} from "@/redux/slice/cartSlice";
 import { TProduct } from "@/types/product";
 import formatPrice from "@/utils/formatPrice";
+import { MinusOutlined, PlusOutlined } from "@ant-design/icons";
 import { Button, Rate } from "antd";
 import Image from "next/image";
 import Link from "next/link";
@@ -12,6 +18,11 @@ const ProductCard = ({
   product: TProduct;
   isSummer?: boolean;
 }) => {
+  const dispatch = useAppDispatch();
+  const { products: cartProducts } = useAppSelector((state) => state.cart);
+  const existProductInCart = cartProducts?.find(
+    (pd: TProduct) => pd?._id === product?._id
+  );
   return (
     <Link
       href={`/products/${product._id}`}
@@ -34,7 +45,10 @@ const ProductCard = ({
       <div className="!space-y-[16px]">
         {isSummer && (
           <div>
-            <Rate disabled value={Math.floor(Math.random() * (5 - 2 + 1)) + 2} />{" "}
+            <Rate
+              disabled
+              value={Math.floor(Math.random() * (5 - 2 + 1)) + 2}
+            />{" "}
             ({Math.round(Math.random() * 150)})
           </div>
         )}
@@ -49,12 +63,40 @@ const ProductCard = ({
             BDT {formatPrice(product.price?.icchaporon?.sellingPrice | 0)}
           </h2>
         </div>
-        <Button
-          className="w-full !text-primary !border-primary !font-semibold"
-          onClick={(e) => e.preventDefault()}
-        >
-          Add to Cart
-        </Button>
+        {existProductInCart ? (
+          <div
+            className="rounded-[24px] bg-pinky px-4 py-[8px] font-semibold w-fit flex items-center gap-6 mx-auto"
+            onClick={(e) => e.preventDefault()}
+          >
+            <span
+              className="cursor-pointer"
+              onClick={() => {
+                dispatch(decreaseQuantityInCart(product?._id));
+              }}
+            >
+              <MinusOutlined />
+            </span>
+            <span>{existProductInCart?.cartQuantity || 0}</span>
+            <span
+              className="cursor-pointer"
+              onClick={() => {
+                dispatch(increaseQuantityInCart({ ...product }));
+              }}
+            >
+              <PlusOutlined />
+            </span>
+          </div>
+        ) : (
+          <Button
+            className="w-full !text-primary !border-primary !font-semibold"
+            onClick={(e) => {
+              dispatch(increaseQuantityInCart({ ...product }));
+              e.preventDefault();
+            }}
+          >
+            Add to Cart
+          </Button>
+        )}
       </div>
     </Link>
   );

@@ -10,12 +10,18 @@ import { siteConfig } from "@/config/site";
 import { SearchOutlined } from "@ant-design/icons";
 import { SearchIcon, ShoppingBagIcon } from "../ui/icons";
 import { usePathname } from "next/navigation";
+import { useAppSelector } from "@/redux/hook";
+import CartSider from "../ui/CartSider";
 
 const { Header } = Layout;
 
 export const Navbar = () => {
+  const [isCartSiderDrawerVisible, setIsCartSiderDrawerVisible] =
+    useState(false);
   const [isDrawerVisible, setIsDrawerVisible] = useState(false);
   const pathname = usePathname();
+
+  const { products } = useAppSelector((state) => state.cart);
 
   // Map navigation items from siteConfig
   const menuItems = siteConfig.navItems.map((item) => ({
@@ -80,9 +86,12 @@ export const Navbar = () => {
             className="!rounded-full bg-[#F5F5FF] text-black !border-none !shadow-none"
           />
           <div className="relative cursor-pointer">
-            <ShoppingBagIcon className="!text-[25px]" />
+            <ShoppingBagIcon
+              className="!text-[25px]"
+              onClick={() => setIsCartSiderDrawerVisible(true)}
+            />
             <span className="bg-black h-5 w-5 rounded-full absolute -top-[6px] -right-[9px] flex items-center justify-center text-white text-sm">
-              5
+              {products?.length}
             </span>
           </div>
           <NavbarProfileDropdown />
@@ -91,9 +100,12 @@ export const Navbar = () => {
         <div className="md:!hidden flex items-center gap-4">
           <SearchIcon />
           <div className="relative cursor-pointer">
-            <ShoppingBagIcon className="!text-[25px]" />
+            <ShoppingBagIcon
+              className="!text-[25px]"
+              onClick={() => setIsCartSiderDrawerVisible(true)}
+            />
             <span className="bg-black h-5 w-5 rounded-full absolute -top-[6px] -right-[9px] flex items-center justify-center text-white text-sm">
-              5
+              {products?.length}
             </span>
           </div>
           <NavbarProfileDropdown />
@@ -111,6 +123,17 @@ export const Navbar = () => {
           open={isDrawerVisible}
         >
           {drawerMenuItems}
+        </Drawer>
+
+        {/* Cart drawer */}
+        <Drawer
+          title="Cart"
+          placement="right"
+          onClose={() => setIsCartSiderDrawerVisible(false)}
+          open={isCartSiderDrawerVisible}
+          width="400"
+        >
+          <CartSider />
         </Drawer>
       </div>
     </Header>

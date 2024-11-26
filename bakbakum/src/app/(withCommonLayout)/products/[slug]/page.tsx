@@ -6,8 +6,12 @@ import { Button, Divider, Rate } from "antd";
 import React from "react";
 import ImgMagnify from "./_components/ImgMagnify";
 import RelatedProducts from "./_components/RelatedProducts";
-import { MinusOutlined, PlusOutlined } from "@ant-design/icons";
 import DetailsReviewsDiscussionTab from "./_components/DetailsReviewsDiscussionTab";
+import ProductDetailsQuantity from "./_components/ProductDetailsQuantity";
+import ProductDetailsAddRemoveFromCart from "./_components/ProductDetailsAddRemoveFromCart";
+import ProductDetailsSize from "./_components/ProductDetailsSize";
+import ProductDetailsColor from "./_components/ProductDetailsColor";
+import FloatingBag from "@/components/ui/FloatingBag";
 
 export const generateStaticParams = async () => {
   const products = await fetch(
@@ -58,35 +62,13 @@ const page = async ({ params }: { params: Promise<{ slug: string }> }) => {
                 <h2 className="font-[600] text-[18px] md:text-[19px]">
                   Available Size
                 </h2>
-                <div className="flex items-center gap-[6px] ">
-                  {["S", "M", "L", "XL", "XXL"].map((size, ind) => (
-                    <span
-                      key={ind}
-                      className="border-[1.5px] border-primary text-primary font-semibold rounded-[8px] py-[2px] px-[8px] bg-white cursor-pointer"
-                    >
-                      {size}
-                    </span>
-                  ))}
-                </div>
+                <ProductDetailsSize />
               </div>
               <div className="space-y-2">
                 <h2 className="font-[600] text-[18px] md:text-[19px]">
                   Available Color
                 </h2>
-                <div className="flex items-center gap-[10px] ">
-                  {["White", "Black", "Red"].map((color, ind) => (
-                    <div
-                      key={ind}
-                      className="flex items-center gap-1 cursor-pointer"
-                    >
-                      <span
-                        className={`border border-primary h-6 w-6 inline-block !rounded-full`}
-                        style={{ background: color?.toLowerCase() }}
-                      ></span>
-                      {color}
-                    </div>
-                  ))}
-                </div>
+                <ProductDetailsColor />
               </div>
             </div>
             <Divider className="!mb-[28px] !mt-[32px]" />
@@ -95,15 +77,7 @@ const page = async ({ params }: { params: Promise<{ slug: string }> }) => {
               <h2 className="font-[600] text-[18px] md:text-[19px]">
                 Quantity
               </h2>
-              <div className="rounded-[24px] bg-pinky px-4 py-[8px] font-semibold w-fit flex items-center gap-6">
-                <span className="cursor-pointer">
-                  <MinusOutlined />
-                </span>
-                <span>5</span>
-                <span className="cursor-pointer">
-                  <PlusOutlined />
-                </span>
-              </div>
+              <ProductDetailsQuantity product={data?.data} />
             </div>
 
             <div className="flex items-center gap-4 !mt-8">
@@ -115,13 +89,7 @@ const page = async ({ params }: { params: Promise<{ slug: string }> }) => {
               >
                 Buy Now
               </Button>
-              <Button
-                size="large"
-                block
-                className="!text-primary !border-primary !font-semibold"
-              >
-                Add to Cart
-              </Button>
+              <ProductDetailsAddRemoveFromCart product={data?.data} />
             </div>
           </div>
         </div>
@@ -135,6 +103,9 @@ const page = async ({ params }: { params: Promise<{ slug: string }> }) => {
         {/* Related product slider */}
         <RelatedProducts />
       </Container>
+
+
+      <FloatingBag/>
     </div>
   );
 };

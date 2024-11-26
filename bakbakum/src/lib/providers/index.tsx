@@ -8,6 +8,8 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/grid";
+import { Provider } from "react-redux";
+import { store } from "@/redux/store";
 
 const Providers = ({ children }: { children: ReactNode }) => {
   const [queryClient] = useState(new QueryClient());
@@ -28,7 +30,11 @@ const Providers = ({ children }: { children: ReactNode }) => {
         },
       }}
     >
-      <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
+      <Provider store={store}>
+        <QueryClientProvider client={queryClient}>
+          {children}
+        </QueryClientProvider>
+      </Provider>
     </ConfigProvider>
   );
 };

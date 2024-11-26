@@ -86,7 +86,7 @@ const SummerProducts = () => {
               fill: "row", // Ensures that the cards are filled row by row
             }}
             breakpoints={{
-              420: { slidesPerView: 2 },
+              420: { slidesPerView: 1 },
               768: { slidesPerView: 3 },
               1024: { slidesPerView: 4 },
               1240: { slidesPerView: 4 },

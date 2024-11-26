@@ -4,6 +4,7 @@ import Collection from "@/components/pages/homepage/Collection";
 import Offer from "@/components/pages/homepage/Offer";
 import SummerProducts from "@/components/pages/homepage/SummerProducts";
 import React from "react";
+import FloatingBag from "@/components/ui/FloatingBag";
 
 const page = () => {
   return (
@@ -13,6 +14,8 @@ const page = () => {
       <Offer />
       <Collection />
       <SummerProducts />
+
+      <FloatingBag />
     </div>
   );
 };

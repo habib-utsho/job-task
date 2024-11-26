@@ -80,7 +80,7 @@ const FeaturedProducts = () => {
             }}
             speed={6000}
             breakpoints={{
-              420: { slidesPerView: 2 },
+              420: { slidesPerView: 1 },
               768: { slidesPerView: 3 },
               1024: { slidesPerView: 4 },
               1240: { slidesPerView: 4 },
