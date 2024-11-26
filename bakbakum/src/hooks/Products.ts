@@ -10,9 +10,10 @@ export const useGetAllProducts = (query: TFilterQuery[]) => {
         params.append(q.name, q.value);
       });
 
-
       const response = await fetch(
-        `https://api.icchaporon.com/api/v1/products?${params.toString()}`
+        `${
+          process.env.NEXT_PUBLIC_SERVER_BASE_URL
+        }/products?${params.toString()}`
       );
 
       if (!response.ok) {

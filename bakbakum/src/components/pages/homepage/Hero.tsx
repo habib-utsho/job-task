@@ -2,12 +2,12 @@ import React from "react";
 import banner from "@/assets/images/homepage/hero.png";
 import bannerGradient from "@/assets/images/homepage/hero_gradient.png";
 import { Button } from "antd";
-import { ArrowRightIcon } from "@/components/ui/icons";
 import {
-  ReconciliationOutlined,
-  ReloadOutlined,
-  TruckOutlined,
-} from "@ant-design/icons";
+  ArrowRoundedIcon,
+  ArrowTopRightIcon,
+  CreditCardIcon,
+  TruckIcon,
+} from "@/components/ui/icons";
 import Container from "@/components/ui/Container";
 
 const Hero = () => {
@@ -15,17 +15,17 @@ const Hero = () => {
     {
       title: "FREE SHIPPING",
       description: "BUY BDT 3000+ & GET FREE DELIVERY",
-      icon: <TruckOutlined />,
+      icon: <TruckIcon />,
     },
     {
       title: "7 DAYS EXCHANGE",
       description: "EXCHANGE WITHIN 7 DAYS WITH SIMILAR TYPE OF PRODUCTS",
-      icon: <ReloadOutlined />,
+      icon: <ArrowRoundedIcon />,
     },
     {
       title: "100% PAYMENT SECURE",
       description: "CASH ON DELIVERY AND SECURED ONLINE PAYMENT",
-      icon: <ReconciliationOutlined />,
+      icon: <CreditCardIcon />,
     },
   ];
 
@@ -50,7 +50,7 @@ const Hero = () => {
               size="large"
               className="!rounded-full"
               type="primary"
-              icon={<ArrowRightIcon />}
+              icon={<ArrowTopRightIcon />}
             />
           </div>
         </div>
@@ -58,18 +58,22 @@ const Hero = () => {
 
       {/* Hero bottom */}
       <div
-        className="bg-primary bg-blend-overlay  py-4"
-        style={{ backgroundImage: `url(${bannerGradient.src})` }}
+        className="py-4"
+        style={{
+          backgroundImage: `linear-gradient(rgba(100, 65, 194, 0.9), rgba(100, 65, 194, 0.9)), url(${bannerGradient.src})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
       >
         <Container className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {heroBottomItems.map((item, index) => (
-            <div key={index} className="flex justify-center text-white gap-4">
-              <span className="!text-[24px]">{item.icon}</span>
-              <div className="space-y-1">
-                <h4 className="text-[18px] md:text-[19px] font-semibold">
+            <div key={index} className="flex gap-4 text-white space-y-2">
+              <span className="text-[32px]">{item.icon}</span>
+              <div className="space-y-3">
+                <h4 className="text-[18px] md:text-[19px] font-semibold leading-[4px]">
                   {item.title}
                 </h4>
-                <p className="text-[12px] md:text-[13px] font-thin">
+                <p className="text-[12px] md:text-[13px] font-light">
                   {item.description}
                 </p>
               </div>

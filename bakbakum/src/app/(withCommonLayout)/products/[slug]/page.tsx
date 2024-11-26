@@ -9,6 +9,18 @@ import RelatedProducts from "./_components/RelatedProducts";
 import { MinusOutlined, PlusOutlined } from "@ant-design/icons";
 import DetailsReviewsDiscussionTab from "./_components/DetailsReviewsDiscussionTab";
 
+export const generateStaticParams = async () => {
+  const products = await fetch(
+    `${process.env.NEXT_PUBLIC_SERVER_BASE_URL}/products?limit=${100}`
+  ).then((res) => res.json()); /// 100 products SSG
+
+  return products?.data?.map((product: TProduct) => {
+    return {
+      slug: product?._id,
+    };
+  });
+};
+
 const page = async ({ params }: { params: { slug: string } }) => {
   const { slug } = await params;
   const data = (await getSingleProduct(slug)) as TResponse<TProduct>;
@@ -114,7 +126,11 @@ const page = async ({ params }: { params: { slug: string } }) => {
           </div>
         </div>
 
-        <DetailsReviewsDiscussionTab product={data?.data} randomRatings={randomRatings} randomReviews={randomReviews}/>
+        <DetailsReviewsDiscussionTab
+          product={data?.data}
+          randomRatings={randomRatings}
+          randomReviews={randomReviews}
+        />
 
         {/* Related product slider */}
         <RelatedProducts />

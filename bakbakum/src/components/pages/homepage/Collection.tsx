@@ -2,13 +2,13 @@
 
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination } from "swiper/modules";
+import { Pagination } from "swiper/modules";
 import Container from "@/components/ui/Container";
 import menCollectionImg from "@/assets/images/homepage/men_collection.png";
 import womanCollectionImg from "@/assets/images/homepage/woman_collection.png";
 import kidCollectionImg from "@/assets/images/homepage/kid_collection.png";
 import { Button } from "antd";
-import { ArrowRightIcon } from "@/components/ui/icons";
+import { ArrowTopRightIcon } from "@/components/ui/icons";
 import Image from "next/image";
 import "swiper/css";
 import "swiper/css/navigation";
@@ -70,7 +70,7 @@ const Collection = () => {
                       size="large"
                       className="!rounded-full"
                       type="primary"
-                      icon={<ArrowRightIcon />}
+                      icon={<ArrowTopRightIcon />}
                     />
                   </div>
                 </div>

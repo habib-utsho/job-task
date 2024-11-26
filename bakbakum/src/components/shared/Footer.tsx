@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import logo from "@/assets/images/logo_white.png";
 import Link from "next/link";
@@ -6,7 +7,7 @@ import Container from "../ui/Container";
 import FacebookLogo from "@/assets/images/social/Facebook.png";
 import LinkedinLogo from "@/assets/images/social/Linkedin.png";
 import TwitterLogo from "@/assets/images/social/Twitter.png";
-import MyInp from "../ui/Form/MyInp";
+import { Input } from "antd";
 
 const Footer = () => {
   const footerLink = [
@@ -51,7 +52,13 @@ const Footer = () => {
               Get notified about updates and be the first to get early access to
               new Podcast episodes.
             </p>
-            <MyInp type="text" label="" name={"subscribe"} />
+            <Input.Search
+              placeholder="Your email address"
+              allowClear
+              enterButton="Subscribe"
+              size="large"
+              // onSearch={() => console.log("hey")}
+            />
           </div>
         </div>
 

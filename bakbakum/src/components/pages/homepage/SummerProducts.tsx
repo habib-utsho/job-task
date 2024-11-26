@@ -9,7 +9,6 @@ import React, { useRef, useState } from "react";
 import { Autoplay, Grid, Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
-
 const SummerProducts = () => {
   const { data: products, isLoading: isLoadingProducts } = useGetAllProducts([
     { name: "limit", value: 16 },

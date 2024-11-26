@@ -4,7 +4,7 @@ export const getSingleProduct = async (id: string) => {
   const fetchOptions = {};
 
   const response = await fetch(
-    `https://api.icchaporon.com/api/v1/products/${id}`,
+    `${process.env.NEXT_PUBLIC_SERVER_BASE_URL}/products/${id}`,
     fetchOptions
   );
 

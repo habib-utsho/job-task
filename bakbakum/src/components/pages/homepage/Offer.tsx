@@ -1,5 +1,5 @@
 import Container from "@/components/ui/Container";
-import { ArrowRightIcon } from "@/components/ui/icons";
+import { ArrowTopRightIcon } from "@/components/ui/icons";
 import { Button } from "antd";
 import React from "react";
 import offerImg from "@/assets/images/homepage/offer.png";
@@ -30,7 +30,7 @@ const Offer = () => {
                 size="large"
                 className="!rounded-full"
                 type="primary"
-                icon={<ArrowRightIcon />}
+                icon={<ArrowTopRightIcon />}
               />
             </div>
 

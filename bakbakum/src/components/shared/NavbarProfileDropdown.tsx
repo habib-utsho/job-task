@@ -27,9 +27,9 @@ const NavbarProfileDropdown = () => {
         overlay={menu}
         placement="bottomRight"
         trigger={["click"]}
-        className="inline-block"
+        className="inline-block !z-[5000000]"
       >
-        <UserOutlined />
+        <UserOutlined className="!text-[23px]" />
       </Dropdown>
     </>
   );

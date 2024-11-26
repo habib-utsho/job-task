@@ -7,8 +7,8 @@ import NavbarProfileDropdown from "./NavbarProfileDropdown";
 import Link from "next/link";
 import { useState } from "react";
 import { siteConfig } from "@/config/site";
-import { ShoppingCartOutlined } from "@ant-design/icons";
-import { SearchIcon } from "../ui/icons";
+import { SearchOutlined, ShoppingCartOutlined } from "@ant-design/icons";
+import { SearchIcon, ShoppingBagIcon } from "../ui/icons";
 import { usePathname } from "next/navigation";
 
 const { Header } = Layout;
@@ -48,8 +48,8 @@ export const Navbar = () => {
 
   return (
     <Header
-      style={{ position: "sticky", top: 0, zIndex: 10000000, width: "100%" }}
-      className="!text-black !bg-white flex items-center justify-between"
+      style={{ position: "sticky", top: 0, zIndex: 1000, width: "100%" }}
+      className="!text-black !bg-pinky flex items-center justify-between"
     >
       {/* Mobile Menu Button */}
       <Button
@@ -68,19 +68,34 @@ export const Navbar = () => {
         <Menu
           mode="horizontal"
           items={menuItems}
-          className="!hidden md:!flex gap-4 justify-start ml-2 rounded-md"
+          className="!hidden md:!flex gap-4 justify-start ml-2 rounded-md !bg-pinky"
           theme="light"
         />
         {/* Right Side Content for Large Screens */}
         <div className="navbar-right-content hidden md:flex items-center gap-4">
-          <Input.Search />
-          <ShoppingCartOutlined />
+          <Input
+            placeholder="Search"
+            prefix={<SearchOutlined />}
+            size="large"
+            className="!rounded-full bg-[#F5F5FF] text-black !border-none !shadow-none"
+          />
+          <div className="relative cursor-pointer">
+            <ShoppingBagIcon className="!text-[25px]" />
+            <span className="bg-black h-5 w-5 rounded-full absolute -top-[6px] -right-[9px] flex items-center justify-center text-white text-sm">
+              5
+            </span>
+          </div>
           <NavbarProfileDropdown />
         </div>
 
         <div className="md:!hidden flex items-center gap-4">
           <SearchIcon />
-          <ShoppingCartOutlined />
+          <div className="relative cursor-pointer">
+            <ShoppingBagIcon className="!text-[25px]" />
+            <span className="bg-black h-5 w-5 rounded-full absolute -top-[6px] -right-[9px] flex items-center justify-center text-white text-sm">
+              5
+            </span>
+          </div>
           <NavbarProfileDropdown />
         </div>
 
