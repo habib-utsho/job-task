@@ -1,4 +1,4 @@
-# We5iv
+# We5ive
 
 Welcome to the We5iv! This application is built using Next.js, Tailwind, AntD and TypeScript to seamless shopping experience.
 
