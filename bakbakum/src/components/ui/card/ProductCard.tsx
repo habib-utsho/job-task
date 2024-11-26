@@ -34,7 +34,7 @@ const ProductCard = ({
       <div className="!space-y-[16px]">
         {isSummer && (
           <div>
-            <Rate defaultValue={Math.floor(Math.random() * (5 - 2 + 1)) + 2} />{" "}
+            <Rate disabled value={Math.floor(Math.random() * (5 - 2 + 1)) + 2} />{" "}
             ({Math.round(Math.random() * 150)})
           </div>
         )}

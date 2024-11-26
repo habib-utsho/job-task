@@ -22,7 +22,7 @@ html {
 /* Define scrollbar styles using CSS variables */
 :root {
   --sb-track-color: #b3d7f8;
-  --sb-thumb-color: #8F71E1;
+  --sb-thumb-color: #8f71e1;
   --sb-size: 7px;
 }
 
@@ -52,5 +52,11 @@ html {
   }
 }
 
-
-
+/* Swiper js pagination */
+/* Swiper carousel dots */
+.swiper-pagination-bullet {
+  @apply bg-[#E0DCF8] !rounded-[8px] !h-[8px] !w-[16px];
+}
+.swiper-pagination-bullet-active {
+  @apply !bg-primary !rounded-[8px] !h-[8px] !w-[32px];
+}

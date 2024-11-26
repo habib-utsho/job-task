@@ -1,6 +1,6 @@
 import FeaturedProducts from "@/components/pages/homepage/FeaturedProducts";
 import Hero from "@/components/pages/homepage/Hero";
-import MensCollection from "@/components/pages/homepage/MensCollection";
+import Collection from "@/components/pages/homepage/Collection";
 import Offer from "@/components/pages/homepage/Offer";
 import SummerProducts from "@/components/pages/homepage/SummerProducts";
 import React from "react";
@@ -11,7 +11,7 @@ const page = () => {
       <Hero />
       <FeaturedProducts />
       <Offer />
-      <MensCollection />
+      <Collection />
       <SummerProducts />
     </div>
   );

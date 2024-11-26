@@ -23,7 +23,8 @@ export default {
           900: "#4D2E84",
           950: "#2F1C59",
         },
-        pinky: "#eeecfb",
+        pinky: "#ece9fe",
+        gray: "#656565",
         black: "#1D1D1D",
         white: "#FFFFFF",
         paragraph: {

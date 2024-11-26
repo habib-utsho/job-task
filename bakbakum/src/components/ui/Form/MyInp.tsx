@@ -26,6 +26,7 @@ type MyInpProps = {
   prefix?: React.ReactNode;
   mode?: "multiple" | "tags" | undefined;
   rows?: number;
+  className?: string;
 };
 
 // className="my-inp"
@@ -44,10 +45,15 @@ const MyInp: React.FC<MyInpProps> = ({
   prefix,
   mode,
   rows,
-  
+  className,
 }) => {
   return (
-    <Form.Item name={name} label={label} rules={rules} className="flex-1">
+    <Form.Item
+      name={name}
+      label={label}
+      rules={rules}
+      className={`flex-1 ${className}`}
+    >
       {type === "text" ? (
         <Input
           defaultValue={defaultValue}
@@ -106,8 +112,12 @@ const MyInp: React.FC<MyInpProps> = ({
           disabled={disabled}
         />
       ) : type === "radio" ? (
-        <Radio.Group defaultValue={defaultValue} value={value} disabled={disabled}>
-          {options?.map(option => (
+        <Radio.Group
+          defaultValue={defaultValue}
+          value={value}
+          disabled={disabled}
+        >
+          {options?.map((option) => (
             <Radio key={option.label} value={option.value}>
               {option.label}
             </Radio>

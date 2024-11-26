@@ -14,7 +14,9 @@ const Offer = () => {
       <Container className="bg-pinky">
         <div className="flex justify-between items-center flex-wrap md:flex-nowrap">
           <div className="rounded-md bg-pinky space-y-[8px] flex-1 p-4">
-            <h2 className={`text-primary text-[24px] text-center md:text-start ${pacifico.className}`}>
+            <h2
+              className={`text-primary text-[24px] text-center md:text-start ${pacifico.className}`}
+            >
               Big Deal
             </h2>
             <p className="text-[28px] md:text-[48px] tracking-[-2px] text-center md:text-start font-semibold">
