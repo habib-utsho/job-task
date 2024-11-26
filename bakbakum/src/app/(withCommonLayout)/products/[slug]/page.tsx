@@ -21,7 +21,7 @@ export const generateStaticParams = async () => {
   });
 };
 
-const page = async ({ params }: { params: { slug: string } }) => {
+const page = async ({ params }: { params: Promise<{ slug: string }> }) => {
   const { slug } = await params;
   const data = (await getSingleProduct(slug)) as TResponse<TProduct>;
   const randomRatings = Math.floor(Math.random() * (5 - 2 + 1)) + 2;

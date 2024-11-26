@@ -7,7 +7,7 @@ import NavbarProfileDropdown from "./NavbarProfileDropdown";
 import Link from "next/link";
 import { useState } from "react";
 import { siteConfig } from "@/config/site";
-import { SearchOutlined, ShoppingCartOutlined } from "@ant-design/icons";
+import { SearchOutlined } from "@ant-design/icons";
 import { SearchIcon, ShoppingBagIcon } from "../ui/icons";
 import { usePathname } from "next/navigation";
 
